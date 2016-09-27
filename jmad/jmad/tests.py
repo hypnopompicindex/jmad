@@ -56,7 +56,7 @@ class StudentTestCase(LiveServerTestCase):
             .find_element_by_css_selector('form button').click()
         second_search_results = self.browser \
             .find_elements_by_css_selector('.jmad-search-result')
-        self.assertEqual(len(second_search_results), 2)
+        self.assertEqual(len(second_search_results), 3)
         self.fail('Incomplete Test')
 
 
