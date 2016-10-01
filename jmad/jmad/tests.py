@@ -23,11 +23,11 @@ class StudentTestCase(LiveServerTestCase):
             track='Waltz for Debby'
         )
 
-
-
-
     def tearDown(self):
         self.browser.quit()
+
+    def find_search_results(self):
+        return self.browser.find_elements_by_css_selector('.jmad-search-result a')
 
     def test_student_find_solos(self):
         """
@@ -62,9 +62,7 @@ class StudentTestCase(LiveServerTestCase):
 
         # He sees too many search results...
         # ...so he adds an artist to his search query and
-        search_results = self.browser.find_elements_by_css_selector(
-            '.jmad-search-result'
-        )
+        search_results = self.find_search_results()
         self.assertGreater(len(search_results), 2)
 
         # gets a more manageable list.
@@ -73,8 +71,7 @@ class StudentTestCase(LiveServerTestCase):
         second_artist_input.send_keys('Cannonball Adderley')
         self.browser \
             .find_element_by_css_selector('form button').click()
-        second_search_results = self.browser \
-            .find_elements_by_css_selector('.jmad-search-result')
+        second_search_results = self.find_search_results()
         self.assertEqual(len(second_search_results), 2)
 
 
