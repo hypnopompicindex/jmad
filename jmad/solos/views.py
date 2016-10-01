@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from .models import Solo
+from django.views.generic.detail import DetailView
 
 
 def index(request):
@@ -26,3 +27,6 @@ def index(request):
 
     return render_to_response('solos/index.html', context)
 
+
+class SoloDetailView(DetailView):
+    pass
