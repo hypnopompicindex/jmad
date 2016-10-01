@@ -14,8 +14,11 @@ class StudentTestCase(LiveServerTestCase):
         )
         self.solo2 = Solo.objects.create(
             instrument='saxophone',
-            artist='Cannonball Adderley',
-            track='All Blues'
+            artist='Adderley',
+            track='All Blues',
+            album='Kind of Blue',
+            start_time='2:06',
+            end_time='4:01'
         )
         self.solo3 = Solo.objects.create(
             instrument='saxophone',
